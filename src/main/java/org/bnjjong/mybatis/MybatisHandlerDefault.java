@@ -29,8 +29,7 @@ import org.bnjjong.property.PropertyHandler;
  *
  * @author bnjjong
  * @version 1.0
- * @see
- * @since 지원하는 자바버전 (ex : 5+ 5이상)
+ * @since 14+
  */
 public class MybatisHandlerDefault implements MybatisHandler {
   private static final Map<String, SqlSessionFactory> sessionMap = new HashMap<>();
