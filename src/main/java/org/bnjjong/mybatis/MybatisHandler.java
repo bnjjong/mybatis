@@ -8,6 +8,7 @@
 
 package org.bnjjong.mybatis;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -24,15 +25,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
  * @since 14+
  */
 public interface MybatisHandler {
-
-//  private static final Map<String, SqlSessionFactory> sessionMap = new HashMap<>();
-//  public static final String DEFAULT_CONN_NAME = "default";
-//  private static final String DEFAULT_CONFIG_PATH = "sqlmap/mybatis-config.xml";
-//  private static final String DEFAULT_PROPERTY_PATH = "sqlmap/mybatis-config.properties";
-
-//  private MybatisHandler() {
-//    throw new IllegalStateException("use only static method.");
-//  }
 
   /**
    * default로 설정된 세션 객체을 리턴 한다.
@@ -52,19 +44,56 @@ public interface MybatisHandler {
    * default로 설정된 설정파일의 다른 환경 설정의 세션 객체를 리턴 한다.
    * @param env 환경 설정 정보
    * @return SqlSession 객체를 반환
+   * @throws  IllegalStateException 환경 설정 정보가 올바르지 않을 경우
    */
+  @ParametersAreNonnullByDefault
   SqlSession getSession(Environments env);
 
   /**
    *
-   * @param env
-   * @return
+   * @param env 환경 설정 정보
+   * @return SqlSessionFactory 객체를 반환
+   * @throws  IllegalStateException 설정 파일 또는 path 등이 올바르지 않을 경우
    */
+  @ParametersAreNonnullByDefault
   SqlSessionFactory getSessionFactory(Environments env);
 
+  /**
+   *
+   * @param configName
+   * @return SqlSession 객체를 반환
+   * @throws  IllegalStateException 설정 파일 또는 path 등이 올바르지 않을 경우
+   */
+  @ParametersAreNonnullByDefault
   SqlSession getSession(String configName);
+
+  /**
+   *
+   * @param configName
+   * @return SqlSessionFactory 객체를 반환
+   * @throws  IllegalStateException 설정 파일 또는 path 등이 올바르지 않을 경우
+   */
+  @ParametersAreNonnullByDefault
   SqlSessionFactory getSessionFactory(String configName);
+
+  /**
+   *
+   * @param configName
+   * @param env
+   * @return SqlSession 객체를 반환
+   * @throws  IllegalStateException 설정 파일 또는 path 등이 올바르지 않을 경우
+   */
+  @ParametersAreNonnullByDefault
   SqlSession getSession(String configName, Environments env);
+
+  /**
+   *
+   * @param configName
+   * @param env
+   * @return SqlSessionFactory 객체를 반환
+   * @throws  IllegalStateException 설정 파일 또는 path 등이 올바르지 않을 경우
+   */
+  @ParametersAreNonnullByDefault
   SqlSessionFactory getSessionFactory(String configName, Environments env);
 
 

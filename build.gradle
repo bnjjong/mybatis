@@ -57,6 +57,12 @@ dependencies {
     // jetbrains validation
     // https://mvnrepository.com/artifact/org.jetbrains/annotations
     compile group: 'org.jetbrains', name: 'annotations', version: '20.1.0'
+
+    // https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305
+    // ParametersAreNonnullByDefault annotation 사용시 필요
+    // http://wonwoo.ml/index.php/post/1593
+    // https://www.jetbrains.com/help/idea/parametersarenonnullbydefault-annotation.html?gclid=CjwKCAiAz4b_BRBbEiwA5XlVVnUu3XGSkCyd2zur22keNNO9YaCzWInfWvS0skyrpWFI0yvYQDZK_xoCNloQAvD_BwE
+    compile group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
 }
 
 test {

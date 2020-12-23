@@ -32,7 +32,7 @@ import org.bnjjong.property.PropertyHandler;
  * @see
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
-public class MybatisHandlerDefault implements MybatisHandler{
+public class MybatisHandlerDefault implements MybatisHandler {
   private static final Map<String, SqlSessionFactory> sessionMap = new HashMap<>();
   private static final String DEFAULT_SESSION_NAME = "default";
 //  static final String DEFAULT_CONFIG_PATH = "sqlmap/mybatis-config.xml";

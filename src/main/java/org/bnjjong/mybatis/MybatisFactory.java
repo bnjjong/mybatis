@@ -8,7 +8,6 @@
 
 package org.bnjjong.mybatis;
 
-import com.adop.demeter.common.log.LogUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
