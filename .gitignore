@@ -1,2 +1,26 @@
-# Project exclude paths
+# java
+/bin/
+/target/
+/build/
+/out/
+
+# eclipse
+/.settings/
+/.project
+/.classpath
+
+# intelliJ
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# gradle
 /.gradle/
+/gradle/wrapper/
+/gradlew
+/gradlew.bat
+/gradle
+
+# logs
+/logs
