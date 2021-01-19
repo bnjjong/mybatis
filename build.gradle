@@ -39,7 +39,7 @@ dependencies {
     compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
     // 외부 jar
-    compile files("libs/property-lib-1.0-jdk-14.jar")
+    compile files("libs/property-lib-1.1-jdk-14-all.jar")
 
     // test
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
@@ -53,6 +53,10 @@ dependencies {
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.2'
     // https://mvnrepository.com/artifact/org.assertj/assertj-core
     testCompile group: 'org.assertj', name: 'assertj-core', version: '3.15.0'
+
+    // https://mvnrepository.com/artifact/com.h2database/h2
+    testCompile group: 'com.h2database', name: 'h2', version: '1.4.200'
+
 
     // jetbrains validation
     // https://mvnrepository.com/artifact/org.jetbrains/annotations

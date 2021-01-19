@@ -31,7 +31,7 @@ import org.bnjjong.property.PropertyHandler;
  * @version 1.0
  * @since 14+
  */
-public class MybatisHandlerDefault implements MybatisHandler {
+public final class MybatisHandlerDefault implements MybatisHandler {
   private static final Map<String, SqlSessionFactory> sessionMap = new HashMap<>();
   private static final String DEFAULT_SESSION_NAME = "default";
 //  static final String DEFAULT_CONFIG_PATH = "sqlmap/mybatis-config.xml";
@@ -45,7 +45,7 @@ public class MybatisHandlerDefault implements MybatisHandler {
    *
    * @throws FileNotFoundException default properties 파일이 없을 때
    */
-  public MybatisHandlerDefault() throws FileNotFoundException {
+  MybatisHandlerDefault() throws FileNotFoundException {
     this.handler = PropertyFactory.getInstance();
     // 경로에 문제가 있다면 IllegalAragument 에러 발생할 수도 있다
     try {
