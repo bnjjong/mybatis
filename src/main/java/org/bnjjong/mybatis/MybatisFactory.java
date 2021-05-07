@@ -16,12 +16,11 @@ import lombok.extern.slf4j.Slf4j;
  * <p> mybatis session factory class</p>
  * <pre>
  *  MybatisHandler 인스턴스 팩토리 클래스.
- *  생성된 인스턴스는 Singleton으로 관리 된다.
+ *  생성된 인스턴스는 {@code Singleton}으로 관리 된다.
  * </pre>
  *
  * @author bnjjong
  * @version 1.0 (mybatis version : 3.5.5)
- * @since 14+
  */
 @Slf4j
 public final class MybatisFactory {
@@ -31,17 +30,19 @@ public final class MybatisFactory {
   }
 
   /**
-   * MybatisHanlder 싱글톤 클래스
+   * MybatisHanlder 싱글톤 클래스.
    */
   private static class Singleton {
     private static MybatisHandler INSTANCE;
   }
 
   /**
+   * <pre>
    * propertyHandler 싱글톤 객체를 리턴 한다.
+   * </pre>
    *
    * @return singleton PropertyHandler 오브젝트
-   * @throws IllegalStateException 리턴할 인스턴스가 null일 경우 에러가 발생 할 수 있다.
+   * @throws IllegalStateException 리턴할 인스턴스가 {@code null}일 경우 에러가 발생 할 수 있다.
    */
   public static MybatisHandler getInstance() {
     try {
@@ -54,4 +55,5 @@ public final class MybatisFactory {
       throw new IllegalStateException(e);
     }
   }
+
 }

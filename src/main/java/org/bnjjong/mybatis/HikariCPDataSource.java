@@ -1,9 +1,9 @@
 /*
- * COPYRIGHT (c) ADOP 2020
- * This software is the proprietary of ADOP
+ * Created By dogfootmaster@gmail.com on 2020
+ * This program is free software
  *
- * @author <a href=“mailto:jordan@adop.cc“>jordan</a>
- * @since 2020/09/07
+ * @author <a href=“mailto:dogfootmaster@gmail.com“>jordan</a>
+ * @since 2020/12/16
  */
 
 package org.bnjjong.mybatis;
@@ -17,7 +17,7 @@ import org.apache.ibatis.datasource.unpooled.UnpooledDataSourceFactory;
  * <p> Hikari Pool </p>
  * <p> UnpooledDataSourceFactory를 통해 또다른 DataSource 생성</p>
  *
- * @author jwpark
+ * @author bnjjong
  * @version 1.0
  * @see UnpooledDataSourceFactory
  * @since 지원하는 자바버전 (ex : 5+ 5이상)

@@ -9,7 +9,6 @@
 package org.bnjjong.mybatis;
 
 import java.io.IOException;
-import java.io.InputStream;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -32,7 +31,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  * @since 14+
  */
 @Slf4j
-class MybatisSessionGenerator{
+class MybatisSessionGenerator {
 
   /**
    * session Factory 객체 생성시 생성 된다.
@@ -41,7 +40,10 @@ class MybatisSessionGenerator{
 
 
   /**
+   * <pre>
    * Mybatis Config 파일로 SqlSessionFactory 생성 한다.
+   * </pre>
+   *
    * @param path Mybatis config 파일 경로. ex) sqlmap/mybatis-config.xml
    * @throws IllegalArgumentException config path 가 정확하지 않을 경우
    */
@@ -50,7 +52,7 @@ class MybatisSessionGenerator{
       if (log.isDebugEnabled()) {
         log.debug("register sql session, config path is \"{}\"", path);
       }
-      InputStream inputStream = Resources.getResourceAsStream(path);
+      var inputStream = Resources.getResourceAsStream(path);
       this.sessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
     } catch (IOException e) {
       throw new IllegalArgumentException("path may not valid.>>>>>>>>>" + path, e);
@@ -59,6 +61,7 @@ class MybatisSessionGenerator{
 
   /**
    * Mybatis Config 파일과 environment 명으로 SqlSessionFactory 생성 한다.
+   *
    * @param path Mybatis config 파일 경로. ex) sqlmap/mybatis-config.xml
    * @param env environment 이름
    * @throws IllegalArgumentException config path 가 정확하지 않거나 environment명이 올바르지 않을 경우
@@ -66,46 +69,27 @@ class MybatisSessionGenerator{
   MybatisSessionGenerator(String path, Environments env) {
     try {
       if (log.isDebugEnabled()) {
-        log.debug("register sql session, config path is \"{}\", environment name is \"{}\"", path, env.toName());
+        log.debug("register sql session, config path is \"{}\", environment name is \"{}\"", path,
+            env.toName());
       }
 
-      InputStream inputStream = Resources.getResourceAsStream(path);
+      var inputStream = Resources.getResourceAsStream(path);
       this.sessionFactory = new SqlSessionFactoryBuilder().build(inputStream, env.toName());
     } catch (IOException e) {
 
-      throw new IllegalArgumentException(
-          String.format("check path and environment >>>>>>>>> path : {%s}, environment : {%s}", path, env),
-          e);
+      var msg = String.
+          format("check path and environment >>>>>>>>> path : {%s}, environment : {%s}",
+              path, env);
+      throw new IllegalArgumentException(msg, e);
     }
   }
 
   /**
+   *
    * <pre>
-   * 등록된 session을 가져온다.
-   * autoCommit = true 상태인 session 을 리턴 한다.
+   * default로 등록된 {@cdoe sessionFactory}를 가져온다.
    * </pre>
    *
-   * @return SqlSession 을 리턴.
-   */
-  SqlSession getSession() {
-    return getSession(true);
-  }
-
-  /**
-   * <pre>
-   * 등록된 session을 가져온다.
-   * autoCommit 여부를 아규먼트로 받을 수 있다.
-   * </pre>
-   *
-   * @param autoCommit autoCommit 설정 값
-   * @return SqlSession 을 리턴.
-   */
-  SqlSession getSession(boolean autoCommit) {
-    return sessionFactory.openSession(autoCommit);
-  }
-
-  /**
-   * default로 등록된 sessionFactory를 가져온다.
    * @return SqlSessionFactory 리턴.
    */
   SqlSessionFactory getSessionFactory() {

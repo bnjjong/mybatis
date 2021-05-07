@@ -22,10 +22,16 @@ public enum EnvironmentsDefault implements Environments{
   /**
    * 샘플로 생성
    */
-  ENV_DEFAUlT {
+  DEFAUlT {
     @Override
     public String toName() {
       return "default";
+    }
+  },
+  EMPTY {
+    @Override
+    public String toName() {
+      return "";
     }
   }
 }

@@ -60,7 +60,7 @@ class MybatisHandlerDefaultTest {
   }
 
   @Test
-  @DisplayName("insert 테스트")
+  @DisplayName("crud 테스트")
   void test02() {
     // given
     MybatisHandler instance = MybatisFactory.getInstance();
@@ -75,7 +75,7 @@ class MybatisHandlerDefaultTest {
     MybatisExecuter.insert(session, "test.insertTest", map, false);
 
     // then
-    Map<String, String> result = MybatisExecuter.selectOne(session, "test.selectTest", id);
+    Map<String, String> result = MybatisExecuter.selectOne(session, "test.selectTest", id, false);
 
     // debug
     for (String key : result.keySet()) {
@@ -88,5 +88,14 @@ class MybatisHandlerDefaultTest {
 
     assertThat(col1Value).isEqualTo("sample value");
     assertThat(col2Value).isEqualTo("test value");
+
+
+    // when
+    MybatisExecuter.delete(session, "test.deleteTest", id, false);
+    result = MybatisExecuter.selectOne(session, "test.selectTest", id, true);
+
+    // then
+    assertThat(result).isNull();
+
   }
 }

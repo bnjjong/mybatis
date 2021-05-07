@@ -11,12 +11,15 @@ package org.bnjjong.mybatis;
 /**
  * create on 2020/12/16. create by IntelliJ IDEA.
  *
- * <p> 클래스 설명 </p>
- * <p> {@link } and {@link }관련 클래스 </p>
+ * <p> Mybatis Environments {@code Interface} </p>
+ *
+ * <pre>
+ *   {@link org.apache.ibatis.session.SqlSessionFactory} 생성시
+ * </pre>
  *
  * @author jordan
  * @version 1.0
- * @see
+ * @see EnvironmentsDefault
  * @since 지원하는 자바버전 (ex : 5+ 5이상)
  */
 public interface Environments {
